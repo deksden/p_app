@@ -4,11 +4,13 @@ import { useSelector } from 'react-redux'
 import dataProvider from './core/data-provider'
 import { UserList, UserCreate, UserEdit } from './resources/users'
 import { UserGroupCreate, UserGroupEdit, UserGroupList } from './resources/user-groups'
+import { MrpPlanList, MrpPlanEdit, MrpPlanCreate } from './resources/mrp-plan'
 
 import UserIcon from '@material-ui/icons/Person'
 import UserGroupIcon from '@material-ui/icons/Group'
 import AccountTreeIcon from '@material-ui/icons/AccountTree'
 import LibraryBooksIcon from '@material-ui/icons/LibraryBooks'
+import BarChartIcon from '@material-ui/icons/BarChart'
 
 import Dashboard from './forms/dashboard'
 import authProvider from './core/auth-provider'
@@ -82,6 +84,17 @@ const App = () => (
       icon={UserGroupIcon}
       edit={UserGroupEdit}
       create={UserGroupCreate}
+    />
+    <Resource
+      name='MrpPlan'
+      options={{ label: 'MRP plan' }}
+      list={MrpPlanList}
+      icon={BarChartIcon}
+      edit={MrpPlanEdit}
+      create={MrpPlanCreate}
+    />
+    <Resource
+      name='MrpProduct'
     />
   </Admin>
 )
