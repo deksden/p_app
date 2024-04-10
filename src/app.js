@@ -1,16 +1,17 @@
+/* eslint-disable spaced-comment */
 import React from 'react'
 import { Admin, Resource, Login, Layout, AppBar } from 'react-admin'
 import { useSelector } from 'react-redux'
 import dataProvider from './core/data-provider'
 import { UserList, UserCreate, UserEdit } from './resources/users'
 import { UserGroupCreate, UserGroupEdit, UserGroupList } from './resources/user-groups'
-import { MrpPlanList, MrpPlanEdit, MrpPlanCreate } from './resources/mrp-plan'
+// import { MrpPlanList, MrpPlanEdit, MrpPlanCreate } from './resources/mrp-plan'
 
 import UserIcon from '@material-ui/icons/Person'
 import UserGroupIcon from '@material-ui/icons/Group'
-import AccountTreeIcon from '@material-ui/icons/AccountTree'
-import LibraryBooksIcon from '@material-ui/icons/LibraryBooks'
-import BarChartIcon from '@material-ui/icons/BarChart'
+// import AccountTreeIcon from '@material-ui/icons/AccountTree'
+// import LibraryBooksIcon from '@material-ui/icons/LibraryBooks'
+// import BarChartIcon from '@material-ui/icons/BarChart'
 
 import Dashboard from './forms/dashboard'
 import authProvider from './core/auth-provider'
@@ -20,12 +21,26 @@ import themeReducer from './core/theme-reducer'
 import { darkTheme, lightTheme } from './core/themes'
 import { ThemeName } from './core/actions'
 
-import {
-  DeployProjectList, DeployProjectCreate, DeployProjectEdit,
-  DeployEventList, DeployEventEdit
-} from './resources/deploys'
+// import {
+//   DeployProjectList, DeployProjectCreate, DeployProjectEdit,
+//   DeployEventList, DeployEventEdit
+// } from './resources/deploys'
+// import { MrpVendorCreate, MrpVendorEdit, MrpVendorList } from './resources/mrp-vendor'
+/** Fragment: app-import */
+import TableChartIcon from '@material-ui/icons/TableChart'
+import BarChartIcon from '@material-ui/icons/BarChart'
+import { MrpPlanList, MrpPlanEdit, MrpPlanCreate } from './resources/mrp-plan'
+import { MrpStageList, MrpStageEdit, MrpStageCreate } from './resources/mrp-stage'
+import { MrpVendorList, MrpVendorEdit, MrpVendorCreate } from './resources/mrp-vendor'
+import { MrpVendorPaymentList, MrpVendorPaymentEdit, MrpVendorPaymentCreate } from './resources/mrp-vendor-payment'
+import { MrpProductList, MrpProductEdit, MrpProductCreate } from './resources/mrp-product'
+import { MrpProductStockList, MrpProductStockEdit, MrpProductStockCreate } from './resources/mrp-product-stock'
+import { MrpResourceList, MrpResourceEdit, MrpResourceCreate } from './resources/mrp-resource'
+import { MrpResourceStockList, MrpResourceStockEdit, MrpResourceStockCreate } from './resources/mrp-resource-stock'
+import { MrpStageResourceList, MrpStageResourceEdit, MrpStageResourceCreate } from './resources/mrp-stage-resource'
+/** FragmentEnd */
 
-const MyLoginPage = () => <Login backgroundImage='https://loremflickr.com/1024/768/city,car' />
+const MyLoginPage = () => <Login backgroundImage='https://loremflickr.com/1024/768/city,factory,plant' />
 const MyAppBar = props => <AppBar {...props} userMenu={<MyMenu />} />
 const MyLayout = props => {
   const theme = useSelector((state) =>
@@ -54,21 +69,21 @@ const App = () => (
     customRoutes={MyRoutes}
     customReducers={{ theme: themeReducer }}
   >
-    <Resource
-      name='DeployProject'
-      options={{ label: 'Deploy projects' }}
-      list={DeployProjectList}
-      icon={AccountTreeIcon}
-      edit={DeployProjectEdit}
-      create={DeployProjectCreate}
-    />
-    <Resource
-      name='DeployEvent'
-      options={{ label: 'Deploy events' }}
-      list={DeployEventList}
-      icon={LibraryBooksIcon}
-      edit={DeployEventEdit}
-    />
+    {/*<Resource*/}
+    {/*  name='DeployProject'*/}
+    {/*  options={{ label: 'Deploy projects' }}*/}
+    {/*  list={DeployProjectList}*/}
+    {/*  icon={AccountTreeIcon}*/}
+    {/*  edit={DeployProjectEdit}*/}
+    {/*  create={DeployProjectCreate}*/}
+    {/*/>*/}
+    {/*<Resource*/}
+    {/*  name='DeployEvent'*/}
+    {/*  options={{ label: 'Deploy events' }}*/}
+    {/*  list={DeployEventList}*/}
+    {/*  icon={LibraryBooksIcon}*/}
+    {/*  edit={DeployEventEdit}*/}
+    {/*/>*/}
     <Resource
       name='user'
       options={{ label: 'Users' }}
@@ -85,17 +100,80 @@ const App = () => (
       edit={UserGroupEdit}
       create={UserGroupCreate}
     />
+    <div /** Fragment: app-resource */ />
     <Resource
       name='MrpPlan'
-      options={{ label: 'MRP plan' }}
+      options={{ label: 'MRP Plan' }}
       list={MrpPlanList}
       icon={BarChartIcon}
       edit={MrpPlanEdit}
       create={MrpPlanCreate}
     />
     <Resource
-      name='MrpProduct'
+      name='MrpStage'
+      options={{ label: 'Этап производства' }}
+      list={MrpStageList}
+      icon={BarChartIcon}
+      edit={MrpStageEdit}
+      create={MrpStageCreate}
     />
+    <Resource
+      name='MrpVendor'
+      options={{ label: 'Поставщик' }}
+      list={MrpVendorList}
+      icon={BarChartIcon}
+      edit={MrpVendorEdit}
+      create={MrpVendorCreate}
+    />
+    <Resource
+      name='MrpVendorPayment'
+      options={{ label: 'Схема оплаты' }}
+      list={MrpVendorPaymentList}
+      icon={BarChartIcon}
+      edit={MrpVendorPaymentEdit}
+      create={MrpVendorPaymentCreate}
+    />
+    <Resource
+      name='MrpProduct'
+      options={{ label: 'Продукция' }}
+      list={MrpProductList}
+      icon={BarChartIcon}
+      edit={MrpProductEdit}
+      create={MrpProductCreate}
+    />
+    <Resource
+      name='MrpProductStock'
+      options={{ label: 'Остатки продукции' }}
+      list={MrpProductStockList}
+      icon={BarChartIcon}
+      edit={MrpProductStockEdit}
+      create={MrpProductStockCreate}
+    />
+    <Resource
+      name='MrpResource'
+      options={{ label: 'Ресурсы' }}
+      list={MrpResourceList}
+      icon={BarChartIcon}
+      edit={MrpResourceEdit}
+      create={MrpResourceCreate}
+    />
+    <Resource
+      name='MrpResourceStock'
+      options={{ label: 'Остатки ресурсов' }}
+      list={MrpResourceStockList}
+      icon={BarChartIcon}
+      edit={MrpResourceStockEdit}
+      create={MrpResourceStockCreate}
+    />
+    <Resource
+      name='MrpStageResource'
+      options={{ label: 'Нормы расхода' }}
+      list={MrpStageResourceList}
+      icon={BarChartIcon}
+      edit={MrpStageResourceEdit}
+      create={MrpStageResourceCreate}
+    />
+    <div /** FragmentEnd */ />
   </Admin>
 )
 
