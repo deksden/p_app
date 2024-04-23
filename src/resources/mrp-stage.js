@@ -6,6 +6,7 @@ import {
   TextInput,
   TextField,
   ReferenceInput,
+  SelectInput,
   ReferenceField,
   NumberInput,
   NumberField,
@@ -30,7 +31,7 @@ const MrpStageFilter = (props) => (
     <div /** Fragment: filter-fields, model: MrpStage */ />
     <TextInput label='Search' source='q' alwaysOn />
     <ReferenceInput source='product' label='Продукт' reference='MrpProduct'>
-      <TextInput source='caption' label='caption' />
+      <SelectInput optionText='caption' label='caption' />
     </ReferenceInput>
     <NumberInput source='order' label='Порядок' />
     <TextInput source='caption' label='Название' />
@@ -64,7 +65,7 @@ const MrpStageForm = (props) => {
       <div /** Fragment: form-fields, model: MrpStage */ />
       <TextInput source='id' label='Id' disabled className={classes.wide} />
       <ReferenceInput source='product' label='Продукт' reference='MrpProduct'>
-        <TextInput source='caption' label='caption' />
+        <SelectInput optionText='caption' label='Продукт' />
       </ReferenceInput>
       <NumberInput source='order' label='Порядок' />
       <TextInput source='caption' label='Название' />

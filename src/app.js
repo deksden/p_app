@@ -27,7 +27,6 @@ import { ThemeName } from './core/actions'
 // } from './resources/deploys'
 // import { MrpVendorCreate, MrpVendorEdit, MrpVendorList } from './resources/mrp-vendor'
 /** Fragment: app-import */
-import TableChartIcon from '@material-ui/icons/TableChart'
 import BarChartIcon from '@material-ui/icons/BarChart'
 import { MrpPlanList, MrpPlanEdit, MrpPlanCreate } from './resources/mrp-plan'
 import { MrpStageList, MrpStageEdit, MrpStageCreate } from './resources/mrp-stage'
@@ -103,7 +102,7 @@ const App = () => (
     <div /** Fragment: app-resource */ />
     <Resource
       name='MrpPlan'
-      options={{ label: 'MRP Plan' }}
+      options={{ label: 'План' }}
       list={MrpPlanList}
       icon={BarChartIcon}
       edit={MrpPlanEdit}

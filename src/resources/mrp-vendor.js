@@ -6,6 +6,7 @@ import {
   TextInput,
   TextField,
   ReferenceInput,
+  SelectInput,
   ReferenceField,
   DateInput,
   DateField,
@@ -29,29 +30,33 @@ const useStyles = makeStyles({
 
 /** FragmentEnd */
 
-const MrpVendorFilter = (props) => (
-  <Filter {...props}>
-    <div /** Fragment: filter-fields, model: MrpVendor */ />
-    <TextInput label='Search' source='q' alwaysOn />
-    <ReferenceInput source='resource' label='Ресурс' reference='MrpResource'>
-      <TextInput source='caption' label='caption' />
-    </ReferenceInput>
-    <TextInput source='caption' label='Название' />
-    <TextInput source='address' label='Адрес' />
-    <DateInput source='date' label='Дата' />
-    <NumberInput source='invoicePrice' label='Цена' />
-    <TextInput source='invoiceCurrency' label='Валюта' />
-    <NumberInput source='orderDuration' label='Длительность заказа' />
-    <BooleanInput source='inWorkingDays' label='Рабочие дни' />
-    <NumberInput source='orderMin' label='Минимальное количество' />
-    <TextInput source='unit' label='Единица' />
-    <NumberInput source='orderStep' label='Шаг количества' />
-    <TextInput source='deliveryCompany' label='Доставка' />
-    <NumberInput source='deliveryDuration' label='Длительность доставки' />
-    <BooleanInput source='deliveryInWorkingDays' label='Доставка, рабочие дни' />
-    <div /** FragmentEnd */ />
-  </Filter>
-)
+const MrpVendorFilter = (props) => {
+  const classes = useStyles()
+  return (
+    <Filter {...props}>
+      <div /** Fragment: filter-fields, model: MrpVendor */ />
+      <TextInput label='Search' source='q' alwaysOn />
+      <ReferenceInput source='resource' label='Ресурс' reference='MrpResource'>
+        <SelectInput optionText='caption' label='caption' className={classes.wide} />
+      </ReferenceInput>
+      <TextInput source='caption' label='Название' fullWidth />
+      <TextInput source='address' label='Адрес' fullWidth />
+      <DateInput source='date' label='Дата' />
+      <NumberInput source='invoicePrice' label='Цена' />
+      <TextInput source='invoiceCurrency' label='Валюта' />
+      <NumberInput source='orderDuration' label='Длительность заказа' />
+      <BooleanInput source='inWorkingDays' label='Рабочие дни' />
+      <NumberInput source='orderMin' label='Минимальное количество' />
+      <TextInput source='unit' label='Единица' />
+      <NumberInput source='orderStep' label='Шаг количества' />
+      <TextInput source='deliveryCompany' label='Доставка' className={classes.wide} />
+      <NumberInput source='deliveryDuration' label='Длительность доставки' />
+      <BooleanInput source='deliveryInWorkingDays' label='Доставка, рабочие дни' />
+      <NumberInput source='expDuration' label='Длительность годности' />
+      <div /** FragmentEnd */ />
+    </Filter>
+  )
+}
 
 export const MrpVendorList = props => (
   <List {...props} title='Поставщик' filters={<MrpVendorFilter />}>
@@ -73,6 +78,7 @@ export const MrpVendorList = props => (
       <TextField source='deliveryCompany' label='Доставка' />
       <NumberField source='deliveryDuration' label='Длительность доставки' />
       <BooleanField source='deliveryInWorkingDays' label='Доставка, рабочие дни' />
+      <NumberField source='expDuration' label='Длительность годности' />
       <div /** FragmentEnd */ />
     </Datagrid>
   </List>
@@ -86,10 +92,10 @@ const MrpVendorForm = (props) => {
       <div /** Fragment: form-fields, model: MrpVendor */ />
       <TextInput source='id' label='Id' disabled className={classes.wide} />
       <ReferenceInput source='resource' label='Ресурс' reference='MrpResource'>
-        <TextInput source='caption' label='caption' />
+        <SelectInput optionText='caption' label='Ресурс' className={classes.wide} />
       </ReferenceInput>
-      <TextInput source='caption' label='Название' />
-      <TextInput source='address' label='Адрес' />
+      <TextInput source='caption' label='Название' fullWidth />
+      <TextInput source='address' label='Адрес' fullWidth />
       <DateInput source='date' label='Дата' />
       <NumberInput source='invoicePrice' label='Цена' />
       <TextInput source='invoiceCurrency' label='Валюта' />
@@ -98,9 +104,10 @@ const MrpVendorForm = (props) => {
       <NumberInput source='orderMin' label='Минимальное количество' />
       <TextInput source='unit' label='Единица' />
       <NumberInput source='orderStep' label='Шаг количества' />
-      <TextInput source='deliveryCompany' label='Доставка' />
+      <TextInput source='deliveryCompany' label='Доставка' className={classes.wide} />
       <NumberInput source='deliveryDuration' label='Длительность доставки' />
       <BooleanInput source='deliveryInWorkingDays' label='Доставка, рабочие дни' />
+      <NumberInput source='expDuration' label='Длительность годности' />
       <div /** FragmentEnd */ />
     </SimpleForm>
   )

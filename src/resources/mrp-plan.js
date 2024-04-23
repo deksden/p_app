@@ -8,6 +8,7 @@ import {
   DateInput,
   DateField,
   ReferenceInput,
+  SelectInput,
   ReferenceField,
   NumberInput,
   NumberField,
@@ -27,19 +28,23 @@ const useStyles = makeStyles({
 
 /** FragmentEnd */
 
-const MrpPlanFilter = (props) => (
-  <Filter {...props}>
-    <div /** Fragment: filter-fields, model: MrpPlan */ />
-    <TextInput label='Search' source='q' alwaysOn />
-    <DateInput source='date' label='Дата' />
-    <ReferenceInput source='product' label='Продукт' reference='MrpProduct'>
-      <TextInput source='caption' label='caption' />
-    </ReferenceInput>
-    <NumberInput source='qnt' label='Количество' />
-    <TextInput source='status' label='Статус' />
-    <div /** FragmentEnd */ />
-  </Filter>
-)
+const MrpPlanFilter = (props) => {
+  const classes = useStyles()
+
+  return (
+    <Filter {...props}>
+      <div /** Fragment: filter-fields, model: MrpPlan */ />
+      <TextInput label='Search' source='q' alwaysOn />
+      <DateInput source='date' label='Дата' />
+      <ReferenceInput source='product' label='Продукт' reference='MrpProduct'>
+        <SelectInput optionText='caption' label='caption' className={classes.wide} />
+      </ReferenceInput>
+      <NumberInput source='qnt' label='Количество' />
+      <TextInput source='status' label='Статус' />
+      <div /** FragmentEnd */ />
+    </Filter>
+  )
+}
 
 export const MrpPlanList = props => (
   <List {...props} title='MRP Plan' filters={<MrpPlanFilter />}>
@@ -65,7 +70,7 @@ const MrpPlanForm = (props) => {
       <TextInput source='id' label='Код' disabled className={classes.wide} />
       <DateInput source='date' label='Дата' />
       <ReferenceInput source='product' label='Продукт' reference='MrpProduct'>
-        <TextInput source='caption' label='caption' />
+        <SelectInput optionText='caption' label='Продукт' className={classes.wide} />
       </ReferenceInput>
       <NumberInput source='qnt' label='Количество' />
       <TextInput source='status' label='Статус' />
