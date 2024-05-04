@@ -5,14 +5,14 @@ import CardContent from '@material-ui/core/CardContent'
 import CardHeader from '@material-ui/core/CardHeader'
 import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core/styles'
-import { CHANGE_THEME, ThemeName } from '../core/actions'
+// import { CHANGE_THEME, ThemeName } from '../core/actions'
 import { useNotify, fetchStart, fetchEnd, fetchUtils } from 'react-admin'
 import { Headers } from 'node-fetch'
 
-const changeTheme = (theme) => ({
-  type: CHANGE_THEME,
-  payload: theme
-})
+// const changeTheme = (theme) => ({
+//   type: CHANGE_THEME,
+//   payload: theme
+// })
 
 const useStyles = makeStyles({
   label: { width: '10em', display: 'inline-block' },
@@ -43,11 +43,30 @@ const Dashboard = () => {
     // fetch(`/comments/${record.id}`, { method: 'PUT', body: updatedRecord })
     fetch(`${ApiUrl}/mrp/reports/all`, options)
       .then(() => {
-        notify('Reports generated')
+        notify('XLSX отчеты сформированы')
         // redirect('/comments')
       })
       .catch((e) => {
-        notify('Error: report generation failed', { type: 'error' })
+        notify(`Ошибка: отчеты не сформированы (${JSON.stringify(e)})`, { type: 'error' })
+      })
+      .finally(() => {
+        setLoading(false)
+        dispatch(fetchEnd()) // stop the global loading indicator
+      })
+  }
+
+  const onPlanAll = () => {
+    setLoading(true)
+    dispatch(fetchStart()) // start the global loading indicator
+    // const updatedRecord = { ...record, is_approved: true };
+    // fetch(`/comments/${record.id}`, { method: 'PUT', body: updatedRecord })
+    fetch(`${ApiUrl}/mrp/plan`, options)
+      .then(() => {
+        notify('Планирование выполнено')
+        // redirect('/comments')
+      })
+      .catch((e) => {
+        notify(`Ошибка при выполнении планирования (${JSON.stringify(e)})`, { type: 'error' })
       })
       .finally(() => {
         setLoading(false)
@@ -57,41 +76,52 @@ const Dashboard = () => {
 
   return (
     <>
+      {/* <Card> */}
+      {/*  <CardHeader title='Welcome to APP!' /> */}
+      {/*  <CardContent> */}
+      {/*    <div className={classes.label}> */}
+      {/*      Theme: */}
+      {/*    </div> */}
+      {/*    <Button */}
+      {/*      variant='contained' */}
+      {/*      className={classes.button} */}
+      {/*      color={theme === 'light' ? 'primary' : 'default'} */}
+      {/*      onClick={() => dispatch(changeTheme(ThemeName.light))} */}
+      {/*    > */}
+      {/*      Light */}
+      {/*    </Button> */}
+      {/*    <Button */}
+      {/*      variant='contained' */}
+      {/*      className={classes.button} */}
+      {/*      color={theme === 'dark' ? 'primary' : 'default'} */}
+      {/*      onClick={() => dispatch(changeTheme(ThemeName.dark))} */}
+      {/*    > */}
+      {/*      Dark */}
+      {/*    </Button> */}
+      {/*  </CardContent> */}
+      {/* </Card> */}
       <Card>
-        <CardHeader title='Welcome to APP!' />
+        <CardHeader title='MRP планирование:' />
         <CardContent>
-          <div className={classes.label}>
-            Theme:
-          </div>
           <Button
             variant='contained'
             className={classes.button}
             color={theme === 'light' ? 'primary' : 'default'}
-            onClick={() => dispatch(changeTheme(ThemeName.light))}
+            onClick={onPlanAll}
+            disabled={loading}
           >
-            Light
+          Планировать
           </Button>
           <Button
             variant='contained'
             className={classes.button}
             color={theme === 'dark' ? 'primary' : 'default'}
-            onClick={() => dispatch(changeTheme(ThemeName.dark))}
+            onClick={onReports}
+            disabled={loading}
           >
-            Dark
+          XLSX отчеты
           </Button>
         </CardContent>
-      </Card>
-      <Card>
-        <CardHeader title='App actions:' />
-        <Button
-          variant='contained'
-          className={classes.button}
-          color={theme === 'light' ? 'primary' : 'default'}
-          onClick={onReports}
-          disabled={loading}
-        >
-          Generate reports
-        </Button>
       </Card>
     </>
   )
