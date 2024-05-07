@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {
   List, Create, Edit, Filter, Datagrid,
-  /** Fragment: import-components, model: MrpVendorTerm */
+  /** Fragment: import-components, model: MrpTerm */
   TextInput,
   TextField,
   ReferenceInput,
@@ -26,15 +26,15 @@ const useStyles = makeStyles({
   }
 })
 
-/** Fragment: field-defs, model: MrpVendorTerm */
+/** Fragment: field-defs, model: MrpTerm */
 
 /** FragmentEnd */
 
-const MrpVendorTermFilter = (props) => {
+const MrpTermFilter = (props) => {
   const classes = useStyles()
   return (
     <Filter {...props}>
-      <div /** Fragment: filter-fields, model: MrpVendorTerm */ />
+      <div /** Fragment: filter-fields, model: MrpTerm */ />
       <TextInput label='Search' source='q' alwaysOn />
       <ReferenceInput source='resource' label='Ресурс' reference='MrpResource'>
         <SelectInput optionText='caption' label='caption' className={classes.wide} />
@@ -59,10 +59,10 @@ const MrpVendorTermFilter = (props) => {
   )
 }
 
-export const MrpVendorTermList = props => (
-  <List {...props} title='Поставщик' filters={<MrpVendorTermFilter />}>
+export const MrpTermList = props => (
+  <List {...props} title='Поставщик' filters={<MrpTermFilter />}>
     <Datagrid rowClick='edit'>
-      <div /** Fragment: list-fields, model: MrpVendorTerm */ />
+      <div /** Fragment: list-fields, model: MrpTerm */ />
       <ReferenceField source='resource' label='Ресурс' reference='MrpResource'>
         <TextField source='caption' label='caption' />
       </ReferenceField>
@@ -86,12 +86,12 @@ export const MrpVendorTermList = props => (
   </List>
 )
 
-const MrpVendorTermForm = (props) => {
+const MrpTermForm = (props) => {
   const classes = useStyles()
 
   return (
     <SimpleForm {... props}>
-      <div /** Fragment: form-fields, model: MrpVendorTerm */ />
+      <div /** Fragment: form-fields, model: MrpTerm */ />
       <TextInput source='id' label='Id' disabled className={classes.wide} />
       <ReferenceInput source='resource' label='Ресурс' reference='MrpResource'>
         <SelectInput optionText='caption' label='Ресурс' className={classes.wide} />
@@ -116,24 +116,24 @@ const MrpVendorTermForm = (props) => {
   )
 }
 
-export const MrpVendorTermCreate = (props) => (
+export const MrpTermCreate = (props) => (
   <Create {...props}>
-    <MrpVendorTermForm />
+    <MrpTermForm />
   </Create>
 )
 
-const MrpVendorTermEditTitle = ({ record }) => {
+const MrpTermEditTitle = ({ record }) => {
   return <span>Поставщик{record ? `"${record.caption}"` : ''}</span>
 }
 
-MrpVendorTermEditTitle.propTypes = {
+MrpTermEditTitle.propTypes = {
   record: PropTypes.shape({
     caption: PropTypes.string
   })
 }
 
-export const MrpVendorTermEdit = props => (
-  <Edit title={<MrpVendorTermEditTitle />} {...props}>
-    <MrpVendorTermForm />
+export const MrpTermEdit = props => (
+  <Edit title={<MrpTermEditTitle />} {...props}>
+    <MrpTermForm />
   </Edit>
 )

@@ -41,7 +41,7 @@ const MrpResourceStockFilter = (props) => (
     <NumberInput source='qnt' label='Количество' />
     <NumberInput source='qntReq' label='Требуемое количество' />
     <NumberInput source='price' label='Цена' />
-    <ReferenceInput source='vendorTerm' label='Условия поставки' reference='MrpVendorTerm'>
+    <ReferenceInput source='term' label='Условия поставки' reference='MrpTerm'>
       <SelectInput optionText='caption' label='caption' />
     </ReferenceInput>
     <ReferenceInput source='productStage' label='Этап производства' reference='MrpProductStage'>
@@ -71,7 +71,7 @@ export const MrpResourceStockList = props => (
       <NumberField source='qnt' label='Количество' />
       <NumberField source='qntReq' label='Требуемое количество' />
       <NumberField source='price' label='Цена' />
-      <ReferenceField source='vendorTerm' label='Условия поставки' reference='MrpVendorTerm'>
+      <ReferenceField source='term' label='Условия поставки' reference='MrpTerm'>
         <TextField source='caption' label='caption' />
       </ReferenceField>
       <ReferenceField source='productStage' label='Этап производства' reference='MrpProductStage'>
@@ -105,7 +105,7 @@ const MrpResourceStockForm = (props) => {
       <NumberInput source='qnt' label='Количество' />
       <NumberInput source='qntReq' label='Требуемое количество' />
       <NumberInput source='price' label='Цена' />
-      <ReferenceInput source='vendorTerm' label='Условия поставки' reference='MrpVendorTerm'>
+      <ReferenceInput source='term' label='Условия поставки' reference='MrpTerm'>
         <SelectInput optionText='caption' label='Условия поставки' />
       </ReferenceInput>
       <ReferenceInput source='productStage' label='Этап производства' reference='MrpProductStage'>

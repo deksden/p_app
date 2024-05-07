@@ -30,7 +30,7 @@ import { ThemeName } from './core/actions'
 import BarChartIcon from '@material-ui/icons/BarChart'
 import { MrpPlanList, MrpPlanEdit, MrpPlanCreate } from './resources/mrp-plan'
 import { MrpStageList, MrpStageEdit, MrpStageCreate } from './resources/mrp-stage'
-import { MrpVendorTermList, MrpVendorTermEdit, MrpVendorTermCreate } from './resources/mrp-vendor-term'
+import { MrpTermList, MrpTermEdit, MrpTermCreate } from './resources/mrp-term'
 import { MrpProductList, MrpProductEdit, MrpProductCreate } from './resources/mrp-product'
 import { MrpProductStockList, MrpProductStockEdit, MrpProductStockCreate } from './resources/mrp-product-stock'
 import { MrpResourceList, MrpResourceEdit, MrpResourceCreate } from './resources/mrp-resource'
@@ -117,12 +117,12 @@ const App = () => (
       create={MrpStageCreate}
     />
     <Resource
-      name='MrpVendorTerm'
+      name='MrpTerm'
       options={{ label: 'Условия поставки' }}
-      list={MrpVendorTermList}
+      list={MrpTermList}
       icon={BarChartIcon}
-      edit={MrpVendorTermEdit}
-      create={MrpVendorTermCreate}
+      edit={MrpTermEdit}
+      create={MrpTermCreate}
     />
     <Resource
       name='MrpProduct'
