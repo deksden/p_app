@@ -41,7 +41,7 @@ const MrpPlanFilter = (props) => {
       </ReferenceInput>
       <NumberInput source='qnt' label='Количество' />
       <TextInput source='status' label='Статус' />
-      <TextInput source='vendorTermSelector' label='Выбор условий' />
+      <TextInput source='tSelector' label='Выбор условий' />
       <div /** FragmentEnd */ />
     </Filter>
   )
@@ -57,7 +57,7 @@ export const MrpPlanList = props => (
       </ReferenceField>
       <NumberField source='qnt' label='Количество' />
       <TextField source='status' label='Статус' />
-      <TextField source='vendorTermSelector' label='Выбор условий' />
+      <TextField source='tSelector' label='Выбор условий' />
       <div /** FragmentEnd */ />
     </Datagrid>
   </List>
@@ -76,7 +76,7 @@ const MrpPlanForm = (props) => {
       </ReferenceInput>
       <NumberInput source='qnt' label='Количество' />
       <TextInput source='status' label='Статус' />
-      <TextInput source='vendorTermSelector' label='Выбор условий' />
+      <TextInput source='tSelector' label='Выбор условий' />
       <div /** FragmentEnd */ />
     </SimpleForm>
   )

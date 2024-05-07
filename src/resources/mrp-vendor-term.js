@@ -43,7 +43,7 @@ const MrpVendorTermFilter = (props) => {
       <TextInput source='address' label='Адрес' fullWidth />
       <DateInput source='date' label='Дата нач' />
       <DateInput source='dateEnd' label='Дата ок' />
-      <NumberInput source='invoicePrice' label='Цена' />
+      <NumberInput source='price' label='Цена' />
       <TextInput source='invoiceCurrency' label='Валюта' />
       <NumberInput source='orderDuration' label='Длительность заказа' />
       <BooleanInput source='inWorkingDays' label='Рабочие дни' />
@@ -70,7 +70,7 @@ export const MrpVendorTermList = props => (
       <TextField source='address' label='Адрес' />
       <DateField source='date' label='Дата нач' />
       <DateField source='dateEnd' label='Дата ок' />
-      <NumberField source='invoicePrice' label='Цена' />
+      <NumberField source='price' label='Цена' />
       <TextField source='invoiceCurrency' label='Валюта' />
       <NumberField source='orderDuration' label='Длительность заказа' />
       <BooleanField source='inWorkingDays' label='Рабочие дни' />
@@ -100,7 +100,7 @@ const MrpVendorTermForm = (props) => {
       <TextInput source='address' label='Адрес' fullWidth />
       <DateInput source='date' label='Дата нач' />
       <DateInput source='dateEnd' label='Дата ок' />
-      <NumberInput source='invoicePrice' label='Цена' />
+      <NumberInput source='price' label='Цена' />
       <TextInput source='invoiceCurrency' label='Валюта' />
       <NumberInput source='orderDuration' label='Длительность заказа' />
       <BooleanInput source='inWorkingDays' label='Рабочие дни' />
