@@ -6,6 +6,7 @@ import {
   TextInput,
   TextField,
   ReferenceInput,
+  SelectInput,
   ReferenceField,
   DateInput,
   DateField,
@@ -32,10 +33,14 @@ const MrpProductStockFilter = (props) => (
     <div /** Fragment: filter-fields, model: MrpProductStock */ />
     <TextInput label='Search' source='q' alwaysOn />
     <ReferenceInput source='product' label='Продукт' reference='MrpProduct'>
-      <TextInput source='caption' label='caption' />
+      <SelectInput optionText='caption' label='caption' />
+    </ReferenceInput>
+    <ReferenceInput source='plan' label='План' reference='MrpPlan'>
+      <SelectInput optionText='caption' label='caption' />
     </ReferenceInput>
     <TextInput source='type' label='Тип' />
     <DateInput source='date' label='Дата' />
+    <DateInput source='dateStart' label='Дата нач' />
     <NumberInput source='qnt' label='Количество' />
     <NumberInput source='price' label='Себестоимость' />
     <div /** FragmentEnd */ />
@@ -49,8 +54,12 @@ export const MrpProductStockList = props => (
       <ReferenceField source='product' label='Продукт' reference='MrpProduct'>
         <TextField source='caption' label='caption' />
       </ReferenceField>
+      <ReferenceField source='plan' label='План' reference='MrpPlan'>
+        <TextField source='caption' label='caption' />
+      </ReferenceField>
       <TextField source='type' label='Тип' />
       <DateField source='date' label='Дата' />
+      <DateField source='dateStart' label='Дата нач' />
       <NumberField source='qnt' label='Количество' />
       <NumberField source='price' label='Себестоимость' />
       <div /** FragmentEnd */ />
@@ -66,10 +75,14 @@ const MrpProductStockForm = (props) => {
       <div /** Fragment: form-fields, model: MrpProductStock */ />
       <TextInput source='id' label='Id' disabled className={classes.wide} />
       <ReferenceInput source='product' label='Продукт' reference='MrpProduct'>
-        <TextInput source='caption' label='caption' />
+        <SelectInput optionText='caption' label='Продукт' />
+      </ReferenceInput>
+      <ReferenceInput source='plan' label='План' reference='MrpPlan'>
+        <SelectInput optionText='caption' label='План' />
       </ReferenceInput>
       <TextInput source='type' label='Тип' />
       <DateInput source='date' label='Дата' />
+      <DateInput source='dateStart' label='Дата нач' />
       <NumberInput source='qnt' label='Количество' />
       <NumberInput source='price' label='Себестоимость' />
       <div /** FragmentEnd */ />

@@ -36,7 +36,6 @@ const MrpProductFilter = (props) => (
     <DateInput source='initialDate' label='Дата' />
     <NumberInput source='qntMin' label='Количество' />
     <NumberInput source='qntStep' label='Шаг' />
-    <NumberInput source='baseQnt' label='База' />
     <BooleanInput source='inWorkingDays' label='Рабочие дни' />
     <TextInput source='comments' label='Примечания' />
     <div /** FragmentEnd */ />
@@ -52,7 +51,6 @@ export const MrpProductList = props => (
       <DateField source='initialDate' label='Дата' />
       <NumberField source='qntMin' label='Количество' />
       <NumberField source='qntStep' label='Шаг' />
-      <NumberField source='baseQnt' label='База' />
       <BooleanField source='inWorkingDays' label='Рабочие дни' />
       <TextField source='comments' label='Примечания' />
       <div /** FragmentEnd */ />
@@ -72,7 +70,6 @@ const MrpProductForm = (props) => {
       <DateInput source='initialDate' label='Дата' />
       <NumberInput source='qntMin' label='Количество' />
       <NumberInput source='qntStep' label='Шаг' />
-      <NumberInput source='baseQnt' label='База' />
       <BooleanInput source='inWorkingDays' label='Рабочие дни' />
       <TextInput source='comments' label='Примечания' />
       <div /** FragmentEnd */ />

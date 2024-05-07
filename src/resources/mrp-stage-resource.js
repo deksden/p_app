@@ -6,7 +6,10 @@ import {
   TextInput,
   TextField,
   ReferenceInput,
+  SelectInput,
   ReferenceField,
+  DateInput,
+  DateField,
   NumberInput,
   NumberField,
   /** FragmentEnd */
@@ -30,12 +33,15 @@ const MrpStageResourceFilter = (props) => (
     <div /** Fragment: filter-fields, model: MrpStageResource */ />
     <TextInput label='Search' source='q' alwaysOn />
     <ReferenceInput source='stage' label='Этап' reference='MrpStage'>
-      <TextInput source='caption' label='caption' />
+      <SelectInput optionText='caption' label='caption' />
     </ReferenceInput>
     <ReferenceInput source='resource' label='Ресурс' reference='MrpResource'>
-      <TextInput source='caption' label='caption' />
+      <SelectInput optionText='caption' label='caption' />
     </ReferenceInput>
+    <DateInput source='date' label='Дата' />
     <NumberInput source='qnt' label='Количество' />
+    <NumberInput source='baseQnt' label='База' />
+    <NumberInput source='price' label='Цена' />
     <div /** FragmentEnd */ />
   </Filter>
 )
@@ -50,7 +56,10 @@ export const MrpStageResourceList = props => (
       <ReferenceField source='resource' label='Ресурс' reference='MrpResource'>
         <TextField source='caption' label='caption' />
       </ReferenceField>
+      <DateField source='date' label='Дата' />
       <NumberField source='qnt' label='Количество' />
+      <NumberField source='baseQnt' label='База' />
+      <NumberField source='price' label='Цена' />
       <div /** FragmentEnd */ />
     </Datagrid>
   </List>
@@ -64,12 +73,15 @@ const MrpStageResourceForm = (props) => {
       <div /** Fragment: form-fields, model: MrpStageResource */ />
       <TextInput source='id' label='Id' disabled className={classes.wide} />
       <ReferenceInput source='stage' label='Этап' reference='MrpStage'>
-        <TextInput source='caption' label='caption' />
+        <SelectInput optionText='caption' label='Этап' />
       </ReferenceInput>
       <ReferenceInput source='resource' label='Ресурс' reference='MrpResource'>
-        <TextInput source='caption' label='caption' />
+        <SelectInput optionText='caption' label='Ресурс' />
       </ReferenceInput>
+      <DateInput source='date' label='Дата' />
       <NumberInput source='qnt' label='Количество' />
+      <NumberInput source='baseQnt' label='База' />
+      <NumberInput source='price' label='Цена' />
       <div /** FragmentEnd */ />
     </SimpleForm>
   )

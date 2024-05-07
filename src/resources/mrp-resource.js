@@ -30,6 +30,7 @@ const MrpResourceFilter = (props) => (
     <TextInput source='caption' label='Название' />
     <TextInput source='unit' label='Единица' />
     <NumberInput source='minStock' label='Мин остаток' />
+    <NumberInput source='expDuration' label='Срок годности' />
     <div /** FragmentEnd */ />
   </Filter>
 )
@@ -41,6 +42,7 @@ export const MrpResourceList = props => (
       <TextField source='caption' label='Название' />
       <TextField source='unit' label='Единица' />
       <NumberField source='minStock' label='Мин остаток' />
+      <NumberField source='expDuration' label='Срок годности' />
       <div /** FragmentEnd */ />
     </Datagrid>
   </List>
@@ -56,6 +58,7 @@ const MrpResourceForm = (props) => {
       <TextInput source='caption' label='Название' />
       <TextInput source='unit' label='Единица' />
       <NumberInput source='minStock' label='Мин остаток' />
+      <NumberInput source='expDuration' label='Срок годности' />
       <div /** FragmentEnd */ />
     </SimpleForm>
   )

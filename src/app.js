@@ -30,13 +30,13 @@ import { ThemeName } from './core/actions'
 import BarChartIcon from '@material-ui/icons/BarChart'
 import { MrpPlanList, MrpPlanEdit, MrpPlanCreate } from './resources/mrp-plan'
 import { MrpStageList, MrpStageEdit, MrpStageCreate } from './resources/mrp-stage'
-import { MrpVendorList, MrpVendorEdit, MrpVendorCreate } from './resources/mrp-vendor'
-import { MrpVendorPaymentList, MrpVendorPaymentEdit, MrpVendorPaymentCreate } from './resources/mrp-vendor-payment'
+import { MrpVendorTermList, MrpVendorTermEdit, MrpVendorTermCreate } from './resources/mrp-vendor-term'
 import { MrpProductList, MrpProductEdit, MrpProductCreate } from './resources/mrp-product'
 import { MrpProductStockList, MrpProductStockEdit, MrpProductStockCreate } from './resources/mrp-product-stock'
 import { MrpResourceList, MrpResourceEdit, MrpResourceCreate } from './resources/mrp-resource'
 import { MrpResourceStockList, MrpResourceStockEdit, MrpResourceStockCreate } from './resources/mrp-resource-stock'
 import { MrpStageResourceList, MrpStageResourceEdit, MrpStageResourceCreate } from './resources/mrp-stage-resource'
+import { MrpProductStageList, MrpProductStageEdit, MrpProductStageCreate } from './resources/mrp-product-stage'
 /** FragmentEnd */
 
 const MyLoginPage = () => <Login backgroundImage='https://loremflickr.com/1024/768/city,factory,plant' />
@@ -117,20 +117,12 @@ const App = () => (
       create={MrpStageCreate}
     />
     <Resource
-      name='MrpVendor'
-      options={{ label: 'Поставщик' }}
-      list={MrpVendorList}
+      name='MrpVendorTerm'
+      options={{ label: 'Условия поставки' }}
+      list={MrpVendorTermList}
       icon={BarChartIcon}
-      edit={MrpVendorEdit}
-      create={MrpVendorCreate}
-    />
-    <Resource
-      name='MrpVendorPayment'
-      options={{ label: 'Схема оплаты' }}
-      list={MrpVendorPaymentList}
-      icon={BarChartIcon}
-      edit={MrpVendorPaymentEdit}
-      create={MrpVendorPaymentCreate}
+      edit={MrpVendorTermEdit}
+      create={MrpVendorTermCreate}
     />
     <Resource
       name='MrpProduct'
@@ -171,6 +163,14 @@ const App = () => (
       icon={BarChartIcon}
       edit={MrpStageResourceEdit}
       create={MrpStageResourceCreate}
+    />
+    <Resource
+      name='MrpProductStage'
+      options={{ label: 'Запланированный этап' }}
+      list={MrpProductStageList}
+      icon={BarChartIcon}
+      edit={MrpProductStageEdit}
+      create={MrpProductStageCreate}
     />
     <div /** FragmentEnd */ />
   </Admin>
